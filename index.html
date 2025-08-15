@@ -18,96 +18,30 @@
         <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-3">
             <div class="flex items-center justify-between p-2 rounded-xl glass-effect">
                 <a href="#" class="flex items-center space-x-3">
-                    <img src="logo.png" alt="Navdrishti Logo" class="h-12 w-12 rounded-full">
+                    <img src="https://i.imgur.com/uN19AlL.jpeg" alt="Navdrishti Logo" class="h-12 w-12 rounded-full">
                     <span class="text-xl font-bold text-stone-800 logo-font">Navdrishti's DLRC</span>
                 </a>
                 <div class="hidden md:flex items-center space-x-6">
-                    <a href="#" class="nav-link text-stone-900 font-semibold" data-view="library">Home</a>
-                    <a href="#" class="nav-link text-stone-600 hover:text-stone-900 transition-colors" data-view="shelves">Shelves</a>
-                    <a href="#" class="nav-link text-stone-600 hover:text-stone-900 transition-colors" data-view="knowledge-graph">Knowledge Graph</a>
+                    <a href="#" class="nav-link active" data-view="library">Home</a>
+                    <a href="#" class="nav-link" data-view="shelves">Shelves</a>
+                    <a href="#" class="nav-link" data-view="knowledge-graph">Knowledge Graph</a>
                 </div>
-                <button id="upload-btn" class="bg-stone-800 text-white hover:bg-stone-700 transition-all duration-300 px-4 py-2 rounded-lg flex items-center space-x-2">
-                    <i data-lucide="upload-cloud" class="w-5 h-5"></i>
-                    <span>Upload</span>
-                </button>
             </div>
         </nav>
     </header>
 
     <!-- Main Content -->
     <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        
-        <!-- View: Library -->
-        <div id="library-view" class="view-container">
-            <section class="hero-gradient text-white rounded-2xl p-8 md:p-16 mb-16 text-center shadow-2xl">
-                <h1 class="text-4xl md:text-6xl font-bold mb-4 logo-font">Your Personal Library, Reimagined.</h1>
-                <p class="text-lg md:text-xl text-stone-200 max-w-3xl mx-auto mb-8">Turn your notes and books into a dynamic, interconnected web of ideas. Discover, learn, and create like never before.</p>
-                <div class="relative max-w-2xl mx-auto">
-                    <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 text-stone-300 w-5 h-5"></i>
-                    <input type="text" id="search-input" placeholder="Search by name or group..." class="w-full bg-white/20 border border-white/30 text-white placeholder-stone-300 rounded-lg py-3 pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-pink-300 transition-all">
-                </div>
-            </section>
-            <section>
-                <div class="flex flex-wrap items-center justify-between gap-4 mb-8">
-                    <h2 class="text-3xl font-bold text-stone-900 logo-font">My Library</h2>
-                    <div id="filter-buttons" class="flex items-center space-x-2 bg-stone-200 p-1 rounded-lg"></div>
-                </div>
-                <div id="library-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"></div>
-            </section>
-        </div>
-
-        <!-- View: Shelves -->
-        <div id="shelves-view" class="view-container view-hidden">
-            <h2 class="text-4xl font-bold text-stone-900 logo-font mb-8">Shelves</h2>
-            <div id="shelves-grid" class="space-y-12"></div>
-        </div>
-
-        <!-- View: Knowledge Graph -->
-        <div id="knowledge-graph-view" class="view-container view-hidden text-center py-16">
-             <h2 class="text-4xl font-bold text-stone-900 logo-font mb-4">Knowledge Graph</h2>
-             <p class="text-stone-600 max-w-2xl mx-auto mb-8">This is where a visual representation of your interconnected notes will appear, helping you discover new patterns and insights in your knowledge base.</p>
-             <i data-lucide="share-2" class="w-24 h-24 text-maroon-dark mx-auto"></i>
-             <p class="text-xl font-semibold text-stone-700 mt-4">Coming Soon!</p>
-        </div>
-
+        <!-- All views (library, shelves, knowledge-graph) will be managed by script.js -->
+        <div id="main-content"></div>
     </main>
 
     <!-- Footer -->
     <footer class="bg-stone-800 text-stone-300 mt-16">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center">
             <p>&copy; 2024 Navdrishti's DLRC. All Rights Reserved.</p>
-            <p class="text-sm text-stone-400 mt-2">Crafted with passion for knowledge.</p>
         </div>
     </footer>
-
-    <!-- Upload Modal -->
-    <div id="upload-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center">
-        <div class="bg-white rounded-lg p-8 w-full max-w-md m-4">
-            <div class="flex justify-between items-center mb-6">
-                <h2 class="text-2xl font-bold logo-font">Upload a New Item</h2>
-                <button id="close-modal-btn"><i data-lucide="x" class="w-6 h-6"></i></button>
-            </div>
-            <form id="upload-form">
-                <div class="mb-4">
-                    <label for="displayName" class="block text-sm font-medium text-gray-700 mb-1">Display Name</label>
-                    <input type="text" id="displayName" name="displayName" class="w-full border-gray-300 rounded-md shadow-sm" required>
-                </div>
-                <div class="mb-4">
-                    <label for="group" class="block text-sm font-medium text-gray-700 mb-1">Add to Group</label>
-                    <select id="group-select" name="group" class="w-full border-gray-300 rounded-md shadow-sm"></select>
-                </div>
-                <div class="mb-4">
-                    <label for="newGroup" class="block text-sm font-medium text-gray-700 mb-1">Or Create a New Group</label>
-                    <input type="text" id="newGroup" name="newGroup" placeholder="e.g., 'Semester 3 Notes'" class="w-full border-gray-300 rounded-md shadow-sm">
-                </div>
-                <div class="mb-6">
-                    <label for="file" class="block text-sm font-medium text-gray-700 mb-1">File</label>
-                    <input type="file" id="file" name="file" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-pink-50 file:text-pink-700 hover:file:bg-pink-100" required>
-                </div>
-                <button type="submit" class="w-full bg-maroon-dark text-white py-2 px-4 rounded-lg hover:bg-maroon-light transition-colors">Upload Item</button>
-            </form>
-        </div>
-    </div>
 
     <script src="script.js"></script>
 </body>

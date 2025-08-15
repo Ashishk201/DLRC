@@ -1,18 +1,69 @@
 {
   "notes": [
     {
-      "id": 1755281059665,
-      "displayName": "Econometrics",
-      "group": "Minor Econ Notes",
-      "fileName": "1755281059.png",
-      "filePath": "/uploads/1755281059.png",
-      "type": "image"
+    },
+    {
+      "id": 1755284150660,
+      "displayName": "Money and Banking 10 Years",
+      "group": "Commerce",
+      "fileName": "1755284150_Money_and_Banking_10_Years.pdf",
+      "type": "document"
+    },
+    {
+      "id": 1755284169147,
+      "displayName": "VARC",
+      "group": "CAT",
+      "fileName": "1755284169_VARC.pdf",
+      "type": "document"
+    },
+    {
+      "id": 1755284181044,
+      "displayName": "LRDI",
+      "group": "CAT",
+      "fileName": "1755284181_LRDI.pdf",
+      "type": "document"
+    },
+    {
+      "id": 1755284192895,
+      "displayName": "QA",
+      "group": "CAT",
+      "fileName": "1755284192_QA.pdf",
+      "type": "document"
+    },
+    {
+      "id": 1755284233981,
+      "displayName": "Hindi A",
+      "group": "Hindi",
+      "fileName": "1755284233_Hindi_A.pdf",
+      "type": "document"
+    },
+    {
+      "id": 1755284250097,
+      "displayName": "Hindi B",
+      "group": "Hindi",
+      "fileName": "1755284250_Hindi_B.pdf",
+      "type": "document"
+    },
+    {
+      "id": 1755284261164,
+      "displayName": "Hindi C",
+      "group": "Hindi",
+      "fileName": "1755284261_Hindi_C.pdf",
+      "type": "document"
+    },
+    {
+      "id": 1755284275052,
+      "displayName": "Question Paper",
+      "group": "Hindi",
+      "fileName": "1755284275_Question_Paper.pdf",
+      "type": "document"
     }
   ],
   "groups": [
     "Books",
-    "Articles",
     "Notes",
-    "Minor Econ Notes"
+    "Commerce",
+    "CAT",
+    "Hindi"
   ]
 }
