@@ -4,7 +4,7 @@
 
 import os
 import json
-from flask import Flask, jsonify, send_from_directory
+from flask import Flask, jsonify, send_from_directory, request
 from flask_cors import CORS
 
 # --- 1. Initialize the Flask App ---
@@ -22,27 +22,10 @@ def serve_library_file(filename):
     """Serves the actual note/book files."""
     return send_from_directory(LIBRARY_FOLDER, filename)
 
-@app.route('/api/data', methods=['GET'])
+@app.route('/database.json')
 def get_data():
-    """Reads and returns the database.json file."""
-    try:
-        with open(DB_PATH, 'r') as f:
-            db = json.load(f)
-        
-        search_query = request.args.get('search', '').lower()
-        if search_query:
-            filtered_notes = [
-                note for note in db['notes'] 
-                if search_query in note['displayName'].lower() or 
-                   search_query in note['group'].lower()
-            ]
-            return jsonify({'notes': filtered_notes, 'groups': db['groups']})
-        
-        return jsonify(db)
-    except FileNotFoundError:
-        return jsonify({"notes": [], "groups": []}), 404
-    except Exception as e:
-        return jsonify({'message': f"Error reading data: {e}"}), 500
+    """Reads and returns the database.json file directly."""
+    return send_from_directory('.', DB_PATH)
 
 @app.route('/')
 def serve_index():
