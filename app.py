@@ -20,7 +20,7 @@ LIBRARY_FOLDER = 'library_files'
 @app.route('/library_files/<path:filename>')
 def serve_library_file(filename):
     """Serves the actual note/book files."""
-    return send_from_directory(LIBRARY_FOLDER, filename)
+    return send_from_directory(filename)
 
 @app.route('/database.json')
 def get_data():
@@ -35,3 +35,4 @@ def serve_index():
 # --- 4. Start the Server (for local testing) ---
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
+
